@@ -13,4 +13,6 @@ public interface categoryService {
     Optional<Category> findOne(Long id);
 
     Category creatOne(saveCategory saveCategory);
+
+    Category updateOne(saveCategory saveCategory);
 }

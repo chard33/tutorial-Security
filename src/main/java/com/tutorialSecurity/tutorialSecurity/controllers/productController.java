@@ -62,7 +62,7 @@ public class productController {
     }
 
     @PutMapping()
-    public ResponseEntity<Product> createOne(@RequestBody @Valid saveProduct.saveUpdate saveUpdate){
+    public ResponseEntity<Product> updateOne(@RequestBody @Valid saveProduct.saveUpdate saveUpdate){
 
         Product product = productService.updateProduct(saveUpdate);
 

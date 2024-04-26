@@ -39,12 +39,11 @@ public class categoryController {
 
         Optional<Category> category = categoryService.findOne(id);
 
-        if (category.isPresent()){
+        return category.map(value ->
+                ResponseEntity.ok().body(value)).orElseGet(() ->
+                ResponseEntity.notFound().build()
+        );
 
-            return ResponseEntity.ok().body(category.get());
-        }
-
-        return ResponseEntity.notFound().build();
     }
 
     @PostMapping()
@@ -59,6 +58,14 @@ public class categoryController {
                 .toUri();
 
         return ResponseEntity.created(url).body(category);
+    }
+
+    @PutMapping()
+    public ResponseEntity<Category> updateOne(@RequestBody @Valid saveCategory saveCategory) {
+
+        Category category = categoryService.updateOne(saveCategory);
+
+        return ResponseEntity.ok().body(category);
     }
 
 

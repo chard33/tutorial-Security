@@ -24,4 +24,7 @@ public class Product {
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private productStatus status;
+    @ManyToOne
+    @JoinColumn(name = "category_id")
+    private Category category;
 }
