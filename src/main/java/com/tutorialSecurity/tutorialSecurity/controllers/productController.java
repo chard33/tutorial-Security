@@ -69,7 +69,7 @@ public class productController {
         return ResponseEntity.ok().body(product);
     }
 
-    @PutMapping("/{id}/disabled")
+    @DeleteMapping("/{id}/disabled")
     public ResponseEntity<Product> disableOne(@PathVariable Long id){
 
         Product product = productService.disabledProduct(id);
