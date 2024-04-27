@@ -2,6 +2,7 @@ package com.tutorialSecurity.tutorialSecurity.services;
 
 import com.tutorialSecurity.tutorialSecurity.dtos.saveCategory;
 import com.tutorialSecurity.tutorialSecurity.entities.Category;
+import jakarta.validation.Valid;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
@@ -14,5 +15,7 @@ public interface categoryService {
 
     Category creatOne(saveCategory saveCategory);
 
-    Category updateOne(saveCategory saveCategory);
+    Category updateOne(saveCategory.updateCategory updateCategory);
+
+    Category disableOne(Long id);
 }

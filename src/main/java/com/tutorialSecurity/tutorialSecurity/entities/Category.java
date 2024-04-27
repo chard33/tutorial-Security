@@ -1,5 +1,6 @@
 package com.tutorialSecurity.tutorialSecurity.entities;
 
+import com.tutorialSecurity.tutorialSecurity.dtos.saveCategory;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -20,4 +21,21 @@ public class Category {
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private categoryStatus status;
+
+    public Category(saveCategory saveCategory) {
+        name = saveCategory.name();
+        status = categoryStatus.ENABLE;
+    }
+
+    public void update(saveCategory.updateCategory updateCategory) {
+
+        if(updateCategory.name() != null){
+            name = updateCategory.name();
+        }
+    }
+
+    public void disable() {
+
+        status = categoryStatus.DISABLE;
+    }
 }
