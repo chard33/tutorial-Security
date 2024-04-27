@@ -24,7 +24,7 @@ public class Category {
 
     public Category(saveCategory saveCategory) {
         name = saveCategory.name();
-        status = categoryStatus.ENABLE;
+        status = categoryStatus.ENABLED;
     }
 
     public void update(saveCategory.updateCategory updateCategory) {
@@ -36,6 +36,6 @@ public class Category {
 
     public void disable() {
 
-        status = categoryStatus.DISABLE;
+        status = categoryStatus.DISABLED;
     }
 }

@@ -1,18 +1,21 @@
 package com.tutorialSecurity.tutorialSecurity.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.tutorialSecurity.tutorialSecurity.dtos.saveProduct;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.Cascade;
 
 import java.math.BigDecimal;
 
 @Entity
-@Table(name = "products")
+@Table
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Product {
 
     @Id
@@ -25,7 +28,8 @@ public class Product {
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private productStatus status;
-    @ManyToOne
+    @ManyToOne//(fetch = FetchType.EAGER)
+    @Cascade(value = org.hibernate.annotations.CascadeType.)
     @JoinColumn(name = "category_id")
     private Category category;
 
@@ -35,7 +39,7 @@ public class Product {
 
         name = saveProd.name();
         price = saveProd.price();
-        status = productStatus.ENABLE;
+        status = productStatus.ENABLED;
         category = category1;
     }
 
@@ -57,6 +61,6 @@ public class Product {
 
     public void disable() {
 
-        status = productStatus.DISABLE;
+        status = productStatus.DISABLED;
     }
 }

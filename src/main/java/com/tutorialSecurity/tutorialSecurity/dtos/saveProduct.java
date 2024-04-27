@@ -7,6 +7,7 @@ import jakarta.persistence.Enumerated;
 import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import lombok.Data;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
@@ -17,8 +18,7 @@ public record saveProduct (
         @DecimalMin(value = "0.01")
         BigDecimal price,
         @NotNull
-        Long categoryId)
-        implements Serializable {
+        Long categoryId) implements Serializable{
 
     public record saveUpdate(
             @NotNull
@@ -26,7 +26,7 @@ public record saveProduct (
             String name,
             BigDecimal price,
             Long categoryId
-    ) implements Serializable {
+    ) implements Serializable{
 
     }
 }
