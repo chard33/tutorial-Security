@@ -28,8 +28,7 @@ public class Product {
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private productStatus status;
-    @ManyToOne//(fetch = FetchType.EAGER)
-    @Cascade(value = org.hibernate.annotations.CascadeType.)
+    @ManyToOne
     @JoinColumn(name = "category_id")
     private Category category;
 
@@ -53,7 +52,7 @@ public class Product {
         }
         if(saveUpdate.categoryId() != null){
             Category category1 = new Category();
-            category.setId(saveUpdate.id());
+            category1.setId(saveUpdate.id());
 
             category = category1;
         }

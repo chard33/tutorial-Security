@@ -3,6 +3,7 @@ package com.tutorialSecurity.tutorialSecurity.controllers;
 import com.tutorialSecurity.tutorialSecurity.dtos.saveProduct;
 import com.tutorialSecurity.tutorialSecurity.entities.Product;
 import com.tutorialSecurity.tutorialSecurity.services.productService;
+import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
@@ -63,6 +64,7 @@ public class productController {
     }
 
     @PutMapping()
+    @Transactional
     public ResponseEntity<Product> updateOne(@RequestBody @Valid saveProduct.saveUpdate saveUpdate){
 
         Product product = productService.updateProduct(saveUpdate);

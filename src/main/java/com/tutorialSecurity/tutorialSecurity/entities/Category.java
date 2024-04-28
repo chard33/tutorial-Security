@@ -1,5 +1,6 @@
 package com.tutorialSecurity.tutorialSecurity.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.tutorialSecurity.tutorialSecurity.dtos.saveCategory;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -11,6 +12,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Category {
 
     @Id
