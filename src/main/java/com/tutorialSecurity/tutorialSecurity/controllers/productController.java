@@ -64,7 +64,6 @@ public class productController {
     }
 
     @PutMapping()
-    @Transactional
     public ResponseEntity<Product> updateOne(@RequestBody @Valid saveProduct.saveUpdate saveUpdate){
 
         Product product = productService.updateProduct(saveUpdate);

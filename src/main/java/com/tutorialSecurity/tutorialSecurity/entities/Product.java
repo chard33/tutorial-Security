@@ -28,18 +28,13 @@ public class Product implements Serializable {
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private productStatus status;
-<<<<<<< HEAD
-    @ManyToOne(fetch = FetchType.EAGER)
-=======
     @ManyToOne
->>>>>>> 87180c95fb0a899903d88717d1be3ef08ef023f1
     @JoinColumn(name = "category_id")
     private Category category;
 
     public Product(saveProduct saveProd) {
         Category category1 = new Category();
         category1.setId(saveProd.categoryId());
-
         name = saveProd.name();
         price = saveProd.price();
         status = productStatus.ENABLED;

@@ -10,16 +10,11 @@ import lombok.NoArgsConstructor;
 import java.io.Serializable;
 
 @Entity
-@Table(name = "")
+@Table
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-<<<<<<< HEAD
 public class Category implements Serializable {
-=======
-@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-public class Category {
->>>>>>> 87180c95fb0a899903d88717d1be3ef08ef023f1
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
