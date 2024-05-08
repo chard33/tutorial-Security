@@ -38,7 +38,7 @@ public class productServiceImpl implements productService {
     @Transactional
     public Product updateProduct(saveProduct.saveUpdate saveUpdate) {
 
-        Product product = productRepository.getReferenceById(saveUpdate.id());
+        Product product = productRepository.findById(saveUpdate.id()).get();
 
         product.update(saveUpdate);
 
@@ -48,7 +48,8 @@ public class productServiceImpl implements productService {
     @Override
     @Transactional
     public Product disabledProduct(Long id) {
-        Product product = productRepository.getReferenceById(id);
+
+        Product product = productRepository.findById(id).get();
 
         product.disable();
 

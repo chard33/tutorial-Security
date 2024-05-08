@@ -8,6 +8,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.Cascade;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 
 @Entity
@@ -15,8 +16,7 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-public class Product {
+public class Product implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,8 +28,7 @@ public class Product {
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private productStatus status;
-    @ManyToOne//(fetch = FetchType.EAGER)
-    @Cascade(value = org.hibernate.annotations.CascadeType.)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "category_id")
     private Category category;
 

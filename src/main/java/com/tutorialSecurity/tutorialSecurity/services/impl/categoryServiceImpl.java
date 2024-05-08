@@ -37,7 +37,7 @@ public class categoryServiceImpl implements categoryService {
     @Transactional
     public Category updateOne(saveCategory.updateCategory updateCategory) {
 
-        Category category = categoryRepository.getReferenceById(updateCategory.id());
+        Category category = categoryRepository.findById(updateCategory.id()).get();
 
         category.update(updateCategory);
 
@@ -48,9 +48,11 @@ public class categoryServiceImpl implements categoryService {
     @Transactional
     public Category disableOne(Long id) {
 
-        Category category = categoryRepository.getReferenceById(id);
+        Category category = categoryRepository.findById(id).get();
 
         category.disable();
+
+        System.out.println(category);
 
         return category;
     }
