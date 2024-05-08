@@ -1,5 +1,6 @@
 package com.tutorialSecurity.tutorialSecurity.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.tutorialSecurity.tutorialSecurity.dtos.saveCategory;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -13,7 +14,12 @@ import java.io.Serializable;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
+<<<<<<< HEAD
 public class Category implements Serializable {
+=======
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+public class Category {
+>>>>>>> 87180c95fb0a899903d88717d1be3ef08ef023f1
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

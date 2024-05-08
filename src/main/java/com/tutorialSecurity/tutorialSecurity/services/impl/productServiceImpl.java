@@ -1,6 +1,7 @@
 package com.tutorialSecurity.tutorialSecurity.services.impl;
 
 import com.tutorialSecurity.tutorialSecurity.dtos.saveProduct;
+import com.tutorialSecurity.tutorialSecurity.entities.Category;
 import com.tutorialSecurity.tutorialSecurity.entities.Product;
 import com.tutorialSecurity.tutorialSecurity.repositories.productRepository;
 import com.tutorialSecurity.tutorialSecurity.services.productService;
@@ -41,6 +42,21 @@ public class productServiceImpl implements productService {
         Product product = productRepository.findById(saveUpdate.id()).get();
 
         product.update(saveUpdate);
+
+//        if(saveUpdate.name() != null){
+//            product.setName(saveUpdate.name());
+//        }
+//        if(saveUpdate.price() != null){
+//            product.setPrice(saveUpdate.price());
+//        }
+//        if(saveUpdate.categoryId() != null){
+//            Category category1 = new Category();
+//            category.setId(saveUpdate.id());
+//
+//            this.setCategory(category1);
+//        }
+
+        //productRepository.save(product);
 
         return  product;
     }

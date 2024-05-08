@@ -28,7 +28,11 @@ public class Product implements Serializable {
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private productStatus status;
+<<<<<<< HEAD
     @ManyToOne(fetch = FetchType.EAGER)
+=======
+    @ManyToOne
+>>>>>>> 87180c95fb0a899903d88717d1be3ef08ef023f1
     @JoinColumn(name = "category_id")
     private Category category;
 
@@ -52,7 +56,7 @@ public class Product implements Serializable {
         }
         if(saveUpdate.categoryId() != null){
             Category category1 = new Category();
-            category.setId(saveUpdate.id());
+            category1.setId(saveUpdate.id());
 
             category = category1;
         }
