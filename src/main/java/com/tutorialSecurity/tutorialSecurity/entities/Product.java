@@ -51,7 +51,7 @@ public class Product implements Serializable {
         }
         if(saveUpdate.categoryId() != null){
             Category category1 = new Category();
-            category1.setId(saveUpdate.id());
+            category1.setId(saveUpdate.categoryId());
 
             category = category1;
         }
